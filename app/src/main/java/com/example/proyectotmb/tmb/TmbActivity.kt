@@ -110,6 +110,7 @@ class TmbActivity : AppCompatActivity() {
 //    Mujeres	TMB = (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161
     private fun calculateTMB(): Double {
         val df = DecimalFormat("#.##")
+        val tmb = 20
         if(isMaleSelected){
             val tmb = 10 * currentWeight + 6.25 * currentHeight.toDouble() - 5 * currentAge + 5
 //        val tmb = currentWeight / (currentHeight.toDouble() / 100 * currentHeight.toDouble() / 100)
