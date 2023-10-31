@@ -7,6 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="orange">#FF9B50</color>
+    <color name="orange2">#FFBB5C</color>
+    <color name="orange3">#E25E3E</color>
+    <color name="orange4">#C63D2F</color>
 
 
     <!--IMC App con tonalidades azules-->
