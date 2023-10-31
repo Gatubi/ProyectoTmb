@@ -7,11 +7,23 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    // PALETA 1 NARANJO ROJO
     <color name="orange">#FF9B50</color>
     <color name="orange2">#FFBB5C</color>
     <color name="orange3">#E25E3E</color>
     <color name="orange4">#C63D2F</color>
-
+    //PALETA DE OTOÑO
+    <color name="fall1">#585123</color>
+    <color name="fall2">#eec170</color>
+    <color name="fall3">#f2a65a</color>
+    <color name="fall4">#f58549</color>
+    <color name="fall5">#772f1a</color>
+    //PALETA 3 ESTA SI
+    <color name="esta1">#ffa43a</color>
+    <color name="esta2">#ffbf75</color>
+    <color name="esta3">#759eff</color>
+    <color name="esta4">#75c7ff</color>
+    <color name="esta5">#525558</color>
 
     <!--IMC App con tonalidades azules-->
     <color name="background_component">#1E2938</color>
