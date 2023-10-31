@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/esta5"
     android:padding="16dp"
-    tools:context=".imc.ResultImcActivity">
+    tools:context=".tmb.TmbActivity">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -47,7 +47,7 @@
                 tools:text="Normal" />
 
             <TextView
-                android:id="@+id/tvIMC"
+                android:id="@+id/tvTMB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="64dp"
