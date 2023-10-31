@@ -102,20 +102,23 @@ class TmbActivity : AppCompatActivity() {
 //            setAge()
 //        }
             btnCalculate.setOnClickListener {
-            /*val result = calculateTMB()
-            navigateToResult(result)*/
+            val result = calculateTMB()
+            navigateToResult(result)
             }
     }
 //    Hombres	TMB = (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5
 //    Mujeres	TMB = (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161
-/*    private fun calculateTMB(): Double {
+    private fun calculateTMB(): Double {
         val df = DecimalFormat("#.##")
-        val tmb = (10 * currentWeight) + (6.25 * currentHeight) - ()
+        if(isMaleSelected){
+            val tmb = 10 * currentWeight + 6.25 * currentHeight.toDouble() - 5 * currentAge + 5
 //        val tmb = currentWeight / (currentHeight.toDouble() / 100 * currentHeight.toDouble() / 100)
-           return df.format(tmb).toDouble()
-   }*/
-
-
+            return df.format(tmb).toDouble()}
+        else {
+            val tmb = (10 * currentWeight) + (6.25 * currentHeight) - (5 * currentAge) - 161
+            return df.format(tmb).toDouble()
+        }
+   }
     private fun navigateToResult(result: Double) {
         val intent = Intent(this, ResultImcActivity::class.java)
         intent.putExtra(TMB_KEY, result)
