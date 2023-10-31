@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import com.example.proyectotmb.R
 import com.example.proyectotmb.imc.ResultImcActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 import java.text.DecimalFormat
 
@@ -25,11 +26,11 @@ class TmbActivity : AppCompatActivity() {
     private lateinit var tvHeight: TextView
     private lateinit var rsHeight: RangeSlider
 
-    //    private lateinit var btnSubtractWeight: FloatingActionButton
-    //    private lateinit var btnPlusWeight: FloatingActionButton
+    private lateinit var btnSubtractWeight: FloatingActionButton
+    private lateinit var btnPlusWeight: FloatingActionButton
     private lateinit var tvWeight: TextView
-    //    private lateinit var btnSubtractAge: FloatingActionButton
-    //    private lateinit var btnPlusAge: FloatingActionButton
+    private lateinit var btnSubtractAge: FloatingActionButton
+    private lateinit var btnPlusAge: FloatingActionButton
     private lateinit var tvAge: TextView
     private lateinit var btnCalculate: Button
     //
@@ -50,11 +51,11 @@ class TmbActivity : AppCompatActivity() {
         viewFemale = findViewById(R.id.viewFemale)
         tvHeight = findViewById(R.id.tvHeight)
         rsHeight = findViewById(R.id.rsHeight)
-//        btnSubtractWeight = findViewById(R.id.btnSubtractWeight)
-//        btnPlusWeight = findViewById(R.id.btnPlusWeight)
+        btnSubtractWeight = findViewById(R.id.btnSubtractWeight)
+        btnPlusWeight = findViewById(R.id.btnPlusWeight)
         tvWeight = findViewById(R.id.tvWeight)
-//        btnSubtractAge = findViewById(R.id.btnSubtractAge)
-//        btnPlusAge = findViewById(R.id.btnPlusAge)
+        btnSubtractAge = findViewById(R.id.btnSubtractAge)
+        btnPlusAge = findViewById(R.id.btnPlusAge)
         tvAge = findViewById(R.id.tvAge)
         btnCalculate = findViewById(R.id.btnCalculate)
         val spinner: Spinner = findViewById(R.id.droplist)
@@ -83,24 +84,24 @@ class TmbActivity : AppCompatActivity() {
             currentHeight = df.format(value).toInt()
             tvHeight.text = "$currentHeight cm"
         }
-//
-//        btnPlusWeight.setOnClickListener {
-//            currentWeight += 1
-//            setWeight()
-//        }
-//        btnSubtractWeight.setOnClickListener {
-//            if (currentWeight > 0)
-//                currentWeight -= 1
-//            setWeight()
-//        }
-//        btnPlusAge.setOnClickListener {
-//            currentAge += 1
-//            setAge()
-//        }
-//        btnSubtractAge.setOnClickListener {
-//            currentAge -= 1
-//            setAge()
-//        }
+
+        btnPlusWeight.setOnClickListener {
+            currentWeight += 1
+            setWeight()
+        }
+        btnSubtractWeight.setOnClickListener {
+            if (currentWeight > 0)
+                currentWeight -= 1
+            setWeight()
+        }
+        btnPlusAge.setOnClickListener {
+            currentAge += 1
+            setAge()
+        }
+        btnSubtractAge.setOnClickListener {
+            currentAge -= 1
+            setAge()
+        }
             btnCalculate.setOnClickListener {
             val result = calculateTMB()
             navigateToResult(result)
@@ -110,15 +111,15 @@ class TmbActivity : AppCompatActivity() {
 //    Mujeres	TMB = (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161
     private fun calculateTMB(): Double {
         val df = DecimalFormat("#.##")
-        val tmb = 20
+        var tmb = 10 * currentWeight + 6.25 * currentHeight.toDouble() - 5 * currentAge
         if(isMaleSelected){
-            val tmb = 10 * currentWeight + 6.25 * currentHeight.toDouble() - 5 * currentAge + 5
+            tmb += 5
 //        val tmb = currentWeight / (currentHeight.toDouble() / 100 * currentHeight.toDouble() / 100)
-            return df.format(tmb).toDouble()}
+            }
         else {
-            val tmb = (10 * currentWeight) + (6.25 * currentHeight) - (5 * currentAge) - 161
-            return df.format(tmb).toDouble()
+            tmb += -161
         }
+        return df.format(tmb).toDouble()
    }
     private fun navigateToResult(result: Double) {
         val intent = Intent(this, ResultImcActivity::class.java)
