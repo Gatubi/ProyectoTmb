@@ -16,7 +16,7 @@ class ImcActivity : AppCompatActivity() {
 
     private var isMaleSelected = true
 
-//    private var currentHeight: Int = 100
+    private var currentHeight: Int = 100
     private var currentWeight: Int = 70
     private var currentAge: Int = 30
 
@@ -25,14 +25,14 @@ class ImcActivity : AppCompatActivity() {
     private lateinit var tvHeight: TextView
     private lateinit var rsHeight: RangeSlider
 
-//    private lateinit var btnSubtractWeight: FloatingActionButton
-//    private lateinit var btnPlusWeight: FloatingActionButton
+    private lateinit var btnSubtractWeight: FloatingActionButton
+    private lateinit var btnPlusWeight: FloatingActionButton
     private lateinit var tvWeight: TextView
-//    private lateinit var btnSubtractAge: FloatingActionButton
-//    private lateinit var btnPlusAge: FloatingActionButton
+    private lateinit var btnSubtractAge: FloatingActionButton
+    private lateinit var btnPlusAge: FloatingActionButton
     private lateinit var tvAge: TextView
-//    private lateinit var btnCalculate: Button
-//
+    private lateinit var btnCalculate: Button
+
     companion object {
         const val IMC_KEY = "IMC_RESULT"
     }
@@ -50,13 +50,13 @@ class ImcActivity : AppCompatActivity() {
         viewFemale = findViewById(R.id.viewFemale)
         tvHeight = findViewById(R.id.tvHeight)
         rsHeight = findViewById(R.id.rsHeight)
-//        btnSubtractWeight = findViewById(R.id.btnSubtractWeight)
-//        btnPlusWeight = findViewById(R.id.btnPlusWeight)
+        btnSubtractWeight = findViewById(R.id.btnSubtractWeight)
+        btnPlusWeight = findViewById(R.id.btnPlusWeight)
         tvWeight = findViewById(R.id.tvWeight)
-//        btnSubtractAge = findViewById(R.id.btnSubtractAge)
-//        btnPlusAge = findViewById(R.id.btnPlusAge)
+        btnSubtractAge = findViewById(R.id.btnSubtractAge)
+        btnPlusAge = findViewById(R.id.btnPlusAge)
         tvAge = findViewById(R.id.tvAge)
-//        btnCalculate = findViewById(R.id.btnCalculate)
+        btnCalculate = findViewById(R.id.btnCalculate)
     }
 
     private fun initListener() {
@@ -64,40 +64,40 @@ class ImcActivity : AppCompatActivity() {
 
         viewFemale.setOnClickListener { toggleisMaleGender(false) }
 
-//        rsHeight.addOnChangeListener { _, value, _ ->
-//            val df = DecimalFormat("#.##")
-//            currentHeight = df.format(value).toInt()
-//            tvHeight.text = "$currentHeight cm"
-//        }
-//
-//        btnPlusWeight.setOnClickListener {
-//            currentWeight += 1
-//            setWeight()
-//        }
-//        btnSubtractWeight.setOnClickListener {
-//            if (currentWeight > 0)
-//                currentWeight -= 1
-//            setWeight()
-//        }
-//        btnPlusAge.setOnClickListener {
-//            currentAge += 1
-//            setAge()
-//        }
-//        btnSubtractAge.setOnClickListener {
-//            currentAge -= 1
-//            setAge()
-//        }
-//        btnCalculate.setOnClickListener {
-//            val result = calculateIMC()
-//            navigateToResult(result)
-//        }
+        rsHeight.addOnChangeListener { _, value, _ ->
+            val df = DecimalFormat("#.##")
+            currentHeight = df.format(value).toInt()
+            tvHeight.text = "$currentHeight cm"
+        }
+
+        btnPlusWeight.setOnClickListener {
+            currentWeight += 1
+           setWeight()
+        }
+        btnSubtractWeight.setOnClickListener {
+            if (currentWeight > 0)
+                currentWeight -= 1
+            setWeight()
+        }
+        btnPlusAge.setOnClickListener {
+            currentAge += 1
+            setAge()
+        }
+        btnSubtractAge.setOnClickListener {
+            currentAge -= 1
+            setAge()
+        }
+        btnCalculate.setOnClickListener {
+            val result = calculateIMC()
+            navigateToResult(result)
+        }
     }
 
-//    private fun calculateIMC(): Double {
-////        val df = DecimalFormat("#.##")
-////        val imc = currentWeight / (currentHeight.toDouble() / 100 * currentHeight.toDouble() / 100)
-////        return df.format(imc).toDouble()
-//    }
+    private fun calculateIMC(): Double {
+        val df = DecimalFormat("#.##")
+        val imc = currentWeight / (currentHeight.toDouble() / 100 * currentHeight.toDouble() / 100)
+        return df.format(imc).toDouble()
+    }
 
     private fun navigateToResult(result: Double) {
         val intent = Intent(this, ResultImcActivity::class.java)

@@ -33,6 +33,7 @@ class TmbActivity : AppCompatActivity() {
     private lateinit var btnPlusAge: FloatingActionButton
     private lateinit var tvAge: TextView
     private lateinit var btnCalculate: Button
+    private lateinit var spinner: Spinner
     //
     companion object {
         const val TMB_KEY = "TMB_RESULT"
@@ -58,7 +59,7 @@ class TmbActivity : AppCompatActivity() {
         btnPlusAge = findViewById(R.id.btnPlusAge)
         tvAge = findViewById(R.id.tvAge)
         btnCalculate = findViewById(R.id.btnCalculate)
-        val spinner: Spinner = findViewById(R.id.droplist)
+        spinner = findViewById(R.id.droplist)
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter.createFromResource(
             this,
@@ -111,6 +112,7 @@ class TmbActivity : AppCompatActivity() {
 //    Mujeres	TMB = (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161
     private fun calculateTMB(): Double {
         val df = DecimalFormat("#.##")
+        val item = spinner.selectedItemId.toInt()
         var tmb = 10 * currentWeight + 6.25 * currentHeight.toDouble() - 5 * currentAge
         if(isMaleSelected){
             tmb += 5
@@ -119,10 +121,28 @@ class TmbActivity : AppCompatActivity() {
         else {
             tmb += -161
         }
+        when(item) {
+            0 -> {
+                tmb *= 1.2
+            }
+            1 -> {
+                tmb *= 1.375
+            }
+            2 -> {
+                tmb *= 1.55
+            }
+            3 -> {
+                tmb *= 1.725
+            }
+            4 -> {
+                tmb *= 1.9
+            }
+        }
+
         return df.format(tmb).toDouble()
    }
     private fun navigateToResult(result: Double) {
-        val intent = Intent(this, ResultImcActivity::class.java)
+        val intent = Intent(this, ResultTmbActivity::class.java)
         intent.putExtra(TMB_KEY, result)
         startActivity(intent)
     }
