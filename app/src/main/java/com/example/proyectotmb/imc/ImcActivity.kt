@@ -112,7 +112,7 @@ class ImcActivity : AppCompatActivity() {
         isMaleSelected = isMale
         viewMale.setCardBackgroundColor(if (isMaleSelected) colorSelected else colorDeselected)
         viewFemale.setCardBackgroundColor(if (isMaleSelected) colorDeselected else colorSelected)
-    }
+}
 
     private fun setAge() {
         tvAge.text = currentAge.toString()
