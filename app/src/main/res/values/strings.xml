@@ -38,4 +38,13 @@
         <item>Ejercicio fuerte (6-7 días a la semana)</item>
         <item>Ejercicio muy fuerte (dos veces al día, entrenamientos muy duros)</item>
     </string-array>
+    <string-array name="protips_tmb">
+    <item>"Come sano y haz actividad física a menudo."</item>
+        <item>"Tu alimentación diaria debe ser al menos 50% de carbohidratos como granos enteros, frutas y verduras."</item>
+        <item>"Una alimentación adecuada también es distribuir el consumo durante el día de forma eficiente."</item>
+        <item>"Recuerda comer sólo cuando sientas hambre, no fuerces las comidas."</item>
+        <item>"Incluir una gran variedad de alimentos en tu dieta garantiza la ingesta de nutrientes."</item>
+    </string-array>
+
+
 </resources>
