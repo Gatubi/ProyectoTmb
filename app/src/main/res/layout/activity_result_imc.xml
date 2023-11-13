@@ -63,6 +63,17 @@
                 android:textColor="@color/white"
                 android:textSize="26sp"
                 tools:text="Normal" />
+
+            <ImageView
+                android:id="@+id/infoIcon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_info"
+                android:clickable="true"
+
+                android:contentDescription="@string/info_icon_description"
+                android:layout_margin="8dp" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
@@ -75,5 +86,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

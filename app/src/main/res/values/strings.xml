@@ -14,6 +14,7 @@
     <string name="title_result">Tu resultado</string>
 
     <string name="error">Error</string>
+    <string name="info_icon_description">Información adicional</string>
 
     <string name="title_underweight">Bajo peso</string>
     <string name="description_underweight">Estás por debajo de lo óptimo para tu peso y altura.</string>

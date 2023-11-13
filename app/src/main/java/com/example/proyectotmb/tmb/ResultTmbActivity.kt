@@ -1,13 +1,14 @@
 package com.example.proyectotmb.tmb
-
-
-import androidx.appcompat.app.AppCompatActivity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectotmb.R
 import com.example.proyectotmb.tmb.TmbActivity.Companion.TMB_KEY
+
 
 class ResultTmbActivity : AppCompatActivity() {
 
@@ -19,6 +20,11 @@ class ResultTmbActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result_tmb)
+
+        val infoIcon = findViewById<ImageView>(R.id.infoIcon)
+        infoIcon.setOnClickListener {
+            mostrarDialogoInformacion()
+        }
 
         val result: Double = intent.extras?.getDouble(TMB_KEY) ?: -1.0
         initComponents()
@@ -79,5 +85,16 @@ class ResultTmbActivity : AppCompatActivity() {
 
     private fun initListeners() {
         btnRecalculate.setOnClickListener { onBackPressed() }
+    }
+
+    private fun mostrarDialogoInformacion() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Importante")
+        builder.setMessage("Come sano y haz actividad física a menudo.")
+        builder.setPositiveButton("Entendido") { dialog, _ ->
+            // Puedes hacer algo cuando el usuario hace clic en el botón "Entendido"
+            dialog.dismiss()
+        }
+        builder.show()
     }
 }

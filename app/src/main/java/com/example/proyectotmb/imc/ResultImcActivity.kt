@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.ImageView
+import android.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.proyectotmb.R
 import com.example.proyectotmb.imc.ImcActivity.Companion.IMC_KEY
@@ -23,6 +25,11 @@ class ResultImcActivity : AppCompatActivity() {
         initComponents()
         initUI(result)
         initListeners()
+
+        val infoIcon = findViewById<ImageView>(R.id.infoIcon)
+        infoIcon.setOnClickListener {
+            mostrarDialogoInformacion()
+        }
     }
 
     private fun initUI(result: Double) {
@@ -70,5 +77,16 @@ class ResultImcActivity : AppCompatActivity() {
 
     private fun initListeners() {
         btnRecalculate.setOnClickListener { onBackPressed() }
+    }
+
+    private fun mostrarDialogoInformacion() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Importante")
+        builder.setMessage("Come sano y haz actividad física a menudo.")
+        builder.setPositiveButton("Entendido") { dialog, _ ->
+            // Puedes hacer algo cuando el usuario hace clic en el botón "Entendido"
+            dialog.dismiss()
+        }
+        builder.show()
     }
 }

@@ -28,8 +28,10 @@
         app:cardCornerRadius="16dp"
         app:layout_constraintBottom_toTopOf="@+id/btnRecalculate"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintVertical_bias="0.312">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -37,7 +39,6 @@
             android:layout_margin="16dp"
             android:gravity="center"
             android:orientation="vertical">
-
 
 
             <TextView
@@ -54,8 +55,8 @@
                 android:id="@+id/tvResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_marginVertical="5dp"
+                android:textColor="@color/black"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 tools:text="Normal" />
@@ -65,10 +66,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="22dp"
+                android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="26sp"
-                android:gravity="center"
                 tools:text="Normal" />
+
+            <ImageView
+                android:id="@+id/infoIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:clickable="true"
+                android:contentDescription="@string/info_icon_description"
+                android:src="@drawable/ic_info" />
+
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
