@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BodyMetrics360</string>
+    <string name="app_name">IMCalculadora</string>
 
     <string name="btn_imc">Índice de Masa Corporal (IMC)</string>
     <string name="btn_tmb">Tasa Metabólica Basal (TMB)</string>
