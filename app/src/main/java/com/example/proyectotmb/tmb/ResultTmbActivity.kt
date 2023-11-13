@@ -1,6 +1,5 @@
 package com.example.proyectotmb.tmb
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -15,7 +14,7 @@ class ResultTmbActivity : AppCompatActivity() {
     private lateinit var tvTMB: TextView
     private lateinit var tvDescription: TextView
     private lateinit var btnRecalculate: Button
-    private  lateinit var tvResult: TextView
+    private lateinit var tvResult: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,7 +89,9 @@ class ResultTmbActivity : AppCompatActivity() {
     private fun mostrarDialogoInformacion() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Importante")
-        builder.setMessage("Come sano y haz actividad física a menudo.")
+        val protips = resources.getStringArray(R.array.protips_tmb)
+        val msg = protips.random()
+        builder.setMessage(msg)
         builder.setPositiveButton("Entendido") { dialog, _ ->
             // Puedes hacer algo cuando el usuario hace clic en el botón "Entendido"
             dialog.dismiss()

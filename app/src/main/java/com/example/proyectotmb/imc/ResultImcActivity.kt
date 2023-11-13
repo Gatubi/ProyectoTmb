@@ -17,6 +17,7 @@ class ResultImcActivity : AppCompatActivity() {
     private lateinit var tvDescription: TextView
     private lateinit var btnRecalculate: Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result_imc)
@@ -82,7 +83,18 @@ class ResultImcActivity : AppCompatActivity() {
     private fun mostrarDialogoInformacion() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Importante")
-        builder.setMessage("Come sano y haz actividad física a menudo.")
+        var msg = "a"
+        var result = tvResult.text
+        if(result == "Bajo peso"){
+                msg = "Prioriza alimentos nutritivos y calorías saludables. Incluye proteínas magras, grasas saludables y carbohidratos completos en tu dieta."
+            }else if(result == "Normal"){
+                msg = "Mantén un equilibrio en tu dieta con una variedad de alimentos. La actividad física regular también es clave para mantener la salud."
+            }else if(result == "Sobrepeso"){
+                msg = "Adopta una dieta balanceada con porciones controladas. Incrementa la actividad física para ayudar en la pérdida de peso."
+            }else {
+            msg = "Busca asesoramiento médico para desarrollar un plan de pérdida de peso seguro y efectivo. Incorpora cambios en el estilo de vida, como una dieta balanceada y ejercicio regular."
+        }
+        builder.setMessage(msg)
         builder.setPositiveButton("Entendido") { dialog, _ ->
             // Puedes hacer algo cuando el usuario hace clic en el botón "Entendido"
             dialog.dismiss()
