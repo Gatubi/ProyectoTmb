@@ -60,7 +60,7 @@ class TmbActivity : AppCompatActivity() {
         tvAge = findViewById(R.id.tvAge)
         btnCalculate = findViewById(R.id.btnCalculate)
         spinner = findViewById(R.id.droplist)
-// Create an ArrayAdapter using the string array and a default spinner layout
+        //DropList - Spinner con ArrayList desde strings.xml
         ArrayAdapter.createFromResource(
             this,
             R.array.rutina_array,

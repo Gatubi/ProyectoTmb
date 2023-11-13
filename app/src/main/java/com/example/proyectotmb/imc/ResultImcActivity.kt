@@ -34,6 +34,7 @@ class ResultImcActivity : AppCompatActivity() {
     }
 
     private fun initUI(result: Double) {
+        //Indicador IMC por resultado
         tvIMC.text = result.toString()
         when (result) {
             in 0.00..18.50 -> { //Bajo peso
@@ -81,6 +82,7 @@ class ResultImcActivity : AppCompatActivity() {
     }
 
     private fun mostrarDialogoInformacion() {
+        //Generador de consejos consejosos
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Importante")
         var msg = "a"
