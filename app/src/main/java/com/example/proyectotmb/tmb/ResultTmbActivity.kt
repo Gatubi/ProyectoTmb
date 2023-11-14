@@ -87,6 +87,7 @@ class ResultTmbActivity : AppCompatActivity() {
     }
 
     private fun mostrarDialogoInformacion() {
+        //Generador de consejos consejosos
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Importante")
         val protips = resources.getStringArray(R.array.protips_tmb)
