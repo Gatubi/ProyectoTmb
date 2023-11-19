@@ -87,6 +87,7 @@ class ResultImcActivity : AppCompatActivity() {
         builder.setTitle("Importante")
         var msg = "a"
         var result = tvResult.text
+        //Mover a strings.xml
         if(result == "Bajo peso"){
                 msg = "Prioriza alimentos nutritivos y calorías saludables. Incluye proteínas magras, grasas saludables y carbohidratos completos en tu dieta."
             }else if(result == "Normal"){

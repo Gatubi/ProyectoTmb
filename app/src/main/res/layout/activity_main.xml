@@ -30,12 +30,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="28sp" />
 
-    <EditText
+    <TextView
         android:id="@+id/tvIndex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textCapSentences|textMultiLine"
         android:scrollHorizontally="false"
         android:gravity="center"
         android:text="En esta aplicación podrás calcular tu IMC y TMB, además de recibir un consejo según tu resultado."
