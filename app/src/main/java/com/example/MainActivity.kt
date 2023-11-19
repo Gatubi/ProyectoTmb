@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import com.example.proyectotmb.R
 import com.example.proyectotmb.imc.ImcActivity
+import com.example.proyectotmb.tmb.TmbActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun toTmb(){
-//        val intent = Intent(this, ActivityTmb::class.java)
-//        startActivity(intent)
+        val intent = Intent(this, TmbActivity::class.java)
+        startActivity(intent)
     }
 }

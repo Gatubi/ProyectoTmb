@@ -1,21 +1,22 @@
-package com.example.proyectotmb.imc
+package com.example.proyectotmb.tmb
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import com.example.proyectotmb.R
+import com.example.proyectotmb.imc.ResultImcActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.slider.RangeSlider
 import java.text.DecimalFormat
 
-class ImcActivity : AppCompatActivity() {
-
+class TmbActivity : AppCompatActivity() {
     private var isMaleSelected = true
-
     private var currentHeight: Int = 100
     private var currentWeight: Int = 70
     private var currentAge: Int = 30
@@ -32,14 +33,15 @@ class ImcActivity : AppCompatActivity() {
     private lateinit var btnPlusAge: FloatingActionButton
     private lateinit var tvAge: TextView
     private lateinit var btnCalculate: Button
-
+    private lateinit var spinner: Spinner
+    //
     companion object {
-        const val IMC_KEY = "IMC_RESULT"
+        const val TMB_KEY = "TMB_RESULT"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_imc2)
+        setContentView(R.layout.activity_tmb2)
         initComponent()
         initListener()
         initUI()
@@ -57,7 +59,21 @@ class ImcActivity : AppCompatActivity() {
         btnPlusAge = findViewById(R.id.btnPlusAge)
         tvAge = findViewById(R.id.tvAge)
         btnCalculate = findViewById(R.id.btnCalculate)
+        spinner = findViewById(R.id.droplist)
+        //DropList - Spinner con ArrayList desde strings.xml
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.rutina_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+
     }
+
 
     private fun initListener() {
         viewMale.setOnClickListener { toggleisMaleGender(true) }
@@ -72,7 +88,7 @@ class ImcActivity : AppCompatActivity() {
 
         btnPlusWeight.setOnClickListener {
             currentWeight += 1
-           setWeight()
+            setWeight()
         }
         btnSubtractWeight.setOnClickListener {
             if (currentWeight > 0)
@@ -88,20 +104,46 @@ class ImcActivity : AppCompatActivity() {
             setAge()
         }
         btnCalculate.setOnClickListener {
-            val result = calculateIMC()
+            val result = calculateTMB()
             navigateToResult(result)
         }
     }
-
-    private fun calculateIMC(): Double {
+    //    Hombres	TMB = (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5
+//    Mujeres	TMB = (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161
+    private fun calculateTMB(): Double {
         val df = DecimalFormat("#.##")
-        val imc = currentWeight / (currentHeight.toDouble() / 100 * currentHeight.toDouble() / 100)
-        return df.format(imc).toDouble()
-    }
+        val item = spinner.selectedItemId.toInt()
+        var tmb = 10 * currentWeight + 6.25 * currentHeight.toDouble() - 5 * currentAge
+        if(isMaleSelected){
+            tmb += 5
+//        val tmb = currentWeight / (currentHeight.toDouble() / 100 * currentHeight.toDouble() / 100)
+        }
+        else {
+            tmb += -161
+        }
+        when(item) {
+            0 -> {
+                tmb *= 1.2
+            }
+            1 -> {
+                tmb *= 1.375
+            }
+            2 -> {
+                tmb *= 1.55
+            }
+            3 -> {
+                tmb *= 1.725
+            }
+            4 -> {
+                tmb *= 1.9
+            }
+        }
 
+        return df.format(tmb).toDouble()
+    }
     private fun navigateToResult(result: Double) {
-        val intent = Intent(this, ResultImcActivity::class.java)
-        intent.putExtra(IMC_KEY, result)
+        val intent = Intent(this, ResultTmbActivity::class.java)
+        intent.putExtra(TMB_KEY, result)
         startActivity(intent)
     }
 

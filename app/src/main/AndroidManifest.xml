@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ProyectoTMB"
         tools:targetApi="31">
         <activity
+            android:name=".tmb.ResultTmbActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tmb.TmbActivity"
+            android:exported="false" />
+        <activity
             android:name=".imc.ResultImcActivity"
             android:exported="false" />
         <activity
