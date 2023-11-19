@@ -16,6 +16,26 @@
     <string name="error">Error</string>
     <string name="info_icon_description">Información adicional</string>
 
+    <string name="titulo_dialogo_importante">Importante</string>
+
+    <string name="mensaje_bajo_peso">
+        Prioriza alimentos nutritivos y calorías saludables. Incluye proteínas magras, grasas saludables y carbohidratos completos en tu dieta.
+    </string>
+
+    <string name="mensaje_normal">
+        Mantén un equilibrio en tu dieta con una variedad de alimentos. La actividad física regular también es clave para mantener la salud.
+    </string>
+
+    <string name="mensaje_sobrepeso">
+        Adopta una dieta balanceada con porciones controladas. Incrementa la actividad física para ayudar en la pérdida de peso.
+    </string>
+
+    <string name="mensaje_otros">
+        Busca asesoramiento médico para desarrollar un plan de pérdida de peso seguro y efectivo. Incorpora cambios en el estilo de vida, como una dieta balanceada y ejercicio regular.
+    </string>
+
+    <string name="boton_entendido">Entendido</string>
+
     <string name="title_underweight">Bajo peso</string>
     <string name="description_underweight">Estás por debajo de lo óptimo para tu peso y altura.</string>
 

@@ -82,26 +82,33 @@ class ResultImcActivity : AppCompatActivity() {
     }
 
     private fun mostrarDialogoInformacion() {
-        //Generador de consejos consejosos
+//        Generador de consejos
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Importante")
-        var msg = "a"
-        var result = tvResult.text
-        //Mover a strings.xml
-        if(result == "Bajo peso"){
-                msg = "Prioriza alimentos nutritivos y calorías saludables. Incluye proteínas magras, grasas saludables y carbohidratos completos en tu dieta."
-            }else if(result == "Normal"){
-                msg = "Mantén un equilibrio en tu dieta con una variedad de alimentos. La actividad física regular también es clave para mantener la salud."
-            }else if(result == "Sobrepeso"){
-                msg = "Adopta una dieta balanceada con porciones controladas. Incrementa la actividad física para ayudar en la pérdida de peso."
-            }else {
-            msg = "Busca asesoramiento médico para desarrollar un plan de pérdida de peso seguro y efectivo. Incorpora cambios en el estilo de vida, como una dieta balanceada y ejercicio regular."
+        builder.setTitle(getString(R.string.titulo_dialogo_importante))
+        var msg = ""
+        val result = tvResult.text.toString()
+
+        when (result) {
+            "Bajo peso" -> {
+                msg = getString(R.string.mensaje_bajo_peso)
+            }
+            "Normal" -> {
+                msg = getString(R.string.mensaje_normal)
+            }
+            "Sobrepeso" -> {
+                msg = getString(R.string.mensaje_sobrepeso)
+            }
+            else -> {
+                msg = getString(R.string.mensaje_otros)
+            }
         }
+
         builder.setMessage(msg)
-        builder.setPositiveButton("Entendido") { dialog, _ ->
+        builder.setPositiveButton(getString(R.string.boton_entendido)) { dialog, _ ->
             // Puedes hacer algo cuando el usuario hace clic en el botón "Entendido"
             dialog.dismiss()
         }
+
         builder.show()
     }
 }
